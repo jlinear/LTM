@@ -1,12 +1,12 @@
 
 #!/bin/csh
-#$ -q long
-#$ -pe mpi-24 24
+#$ -q debug
+#$ -pe smp 12
 #$ -M jyang9@nd.edu
 #$ -m abe
-#$ -N PGM_both
+#$ -N LTM
 
 
-module load R
+module load python
 
-Rscript PGMrun.R
+python ./code/LTM.py ./data/data_text_CP_rawdb.txt
