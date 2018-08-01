@@ -137,7 +137,7 @@ if __name__ == '__main__':
 	alpha1 = (50, 50)
 	beta = (10, 10)
 
-	T = LTM(F, C, alpha0, alpha1, beta, 2, 5, 2)
+	T = LTM(F, C, alpha0, alpha1, beta, 20, 100, 3)
 
 	outf_name = sys.argv[2] + '_out.txt'
 	fw = open(outf_name,'w')
