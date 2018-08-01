@@ -116,7 +116,7 @@ def LTM(F, C, alpha0, alpha1, beta, burnin, maxit, sample_size):
 				p_true[fid] += 1.0 * t_f / sample_size
 
 	for fid, f in enumerate(F):
-		if p_true[fid] > 0.5:
+		if p_true[fid] > 0.1:
 			T[fid] = 1
 		else:
 			T[fid] = 0
