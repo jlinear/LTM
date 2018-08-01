@@ -115,13 +115,19 @@ def LTM(F, C, alpha0, alpha1, beta, burnin, maxit, sample_size):
 			if i > burnin and i % sample_size == 0:
 				p_true[fid] += 1.0 * t_f / sample_size
 
-	for fid, f in enumerate(F):
-		if p_true[fid] > 0.1:
-			T[fid] = 1
-		else:
-			T[fid] = 0
+	# for fid, f in enumerate(F):
+	# 	if p_true[fid] > 0.1:
+	# 		T[fid] = 1
+	# 	else:
+	# 		T[fid] = 0
 
-	return T
+	# return T
+
+	res = []
+	for fid, f in enumerate(F):
+		res.append(p_true[fid])
+
+	return res
 
 
 if __name__ == '__main__':
@@ -133,7 +139,8 @@ if __name__ == '__main__':
 
 	T = LTM(F, C, alpha0, alpha1, beta, 2, 5, 2)
 
-	fw = open('out.txt','w')
+	outf_name = sys.argv[2] + '_out.txt'
+	fw = open(outf_name,'w')
 	for fid, f in enumerate(F):
 		fw.write(str(fid) + '\t' + f[0] + '\t' + f[1] + '\t' + str(T[fid]) + '\n')
 	fw.close()
